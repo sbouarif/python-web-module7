@@ -34,6 +34,7 @@ jobs:
       - name: Test Docker container
         run: |
           mkdir -p qr_codes
+          sudo chown 1000:1000 qr_codes
           docker run --rm \
             -v "${{ github.workspace }}/qr_codes:/app/qr_codes" \
             qr-code-generator-app --url https://www.njit.edu
